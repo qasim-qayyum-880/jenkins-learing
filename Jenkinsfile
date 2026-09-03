@@ -6,6 +6,16 @@ pipeline {
                 echo 'Checking out code...'
             }
         }
+        stage('Install & Test') {
+            steps {
+                sh '''
+                    python3 -m venv venv
+                    . venv/bin/activate
+                    pip install pytest
+                    pytest
+                '''
+            }
+        }
         stage('Build Image') {
             steps {
                 sh 'docker build -t jenkins-demo-app .'
