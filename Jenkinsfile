@@ -6,19 +6,14 @@ pipeline {
                 echo 'Checking out code...'
             }
         }
-        stage('Build') {
+        stage('Build Image') {
             steps {
-                sh 'echo Building the app...'
+                sh 'docker build -t jenkins-demo-app .'
             }
         }
-        stage('Test') {
+        stage('Run Container') {
             steps {
-                sh 'echo Running tests...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'echo Deploying app...'
+                sh 'docker run --rm jenkins-demo-app'
             }
         }
     }
