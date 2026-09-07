@@ -28,7 +28,7 @@ pipeline {
         }
                 stage('Push to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'qasim4338880@gmail.com', passwordVariable: 'Zxcvb436@123')]) {
                     sh '''
                         docker tag jenkins-demo-app $DOCKER_USER/jenkins-demo-app:latest
                         echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
